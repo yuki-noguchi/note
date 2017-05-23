@@ -49,6 +49,7 @@ test:
 #
 production:
   <<: *default
+  socket: /var/lib/mysql/mysql.sock
   database: note_production
   username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
