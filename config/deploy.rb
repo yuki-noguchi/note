@@ -9,10 +9,11 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['~/.ssh/keypair.pem']
+                  keys: ['~/.ssh/note_key_pair.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
+set :bundle_env_variables, { nokogiri_use_system_libraries: 1 }
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
