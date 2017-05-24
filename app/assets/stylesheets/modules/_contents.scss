@@ -1,0 +1,72 @@
+.contents {
+  width: 100%;
+  max-width: 578px;
+  margin: 15px auto 0;
+  .content {
+    margin-bottom: 15px;
+    background-color: #ffffff;
+    @include border();
+    display: flex;
+    flex-direction: column;
+    flex-basis: 578px;
+    &__user {
+      padding: 20px;
+      line-height: 24px;
+      &__avatar img{
+        @include thumb();
+        float: left;
+      }
+      &__name {
+        line-height: 18px;
+        margin-left: 40px;
+        font-weight: bolder;
+      }
+      &__time {
+        line-height: 18px;
+        margin-left: 40px;
+      }
+    }
+    &__article {
+      height: 100%;
+      padding-bottom: 20px;
+      &__image img{
+        height: 238px;
+        width: 100%;
+        max-width: 578px;
+      }
+      &__title {
+        padding: 0 20px;
+        font-size: 20px;
+        font-weight: bolder;
+        line-height: 28px;
+        margin: 20px 0 13px;
+      }
+      &__body {
+        padding: 0 20px;
+        font-size: 14px;
+        line-height: 25.2px;
+      }
+      &__more {
+        margin-top: 10px;
+        padding: 0 20px;
+        color: #3BC49D;
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
+  .more {
+    margin: 0 auto 20px;
+    text-align: center;
+    width: 300px;
+    height: 35px;
+    line-height: 35px;
+    background-color: #FFF;
+    color: #a1a6a9;
+    @include border();
+    &:hover {
+      border: 1px solid #bdc3c7;
+    }
+  }
+}
