@@ -1,0 +1,24 @@
+%header
+  %nav
+    %ul.top-menu
+      %li.top-menu__logo
+        = link_to root_path do
+          = image_tag 'logo.svg'
+      - if user_signed_in?
+        %li.top-menu__search
+          %i.fa.fa-search
+        %li.top-menu__notification
+          %i.fa.fa-bell-o
+        %li.top-menu__user
+          = link_to user_path(current_user.id) do
+            = image_tag 'prof.jpg'
+        %li.top-menu__post
+          %i.fa.fa-pencil-square-o ノートを投稿
+      - else
+        %li.top-menu__login
+          %span
+            = link_to "ログイン", new_user_session_path
+            %span /
+            = link_to "新規登録", new_user_registration_path
+        %li.top-menu__search
+          %i.fa.fa-search
