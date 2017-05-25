@@ -15,6 +15,7 @@
       &__avatar img{
         @include thumb();
         float: left;
+        margin-right: 10px;
       }
       &__name {
         line-height: 18px;
@@ -49,7 +50,12 @@
       &__more {
         margin-top: 10px;
         padding: 0 20px;
-        color: #3BC49D;
+        a:link{
+          color: #3BC49D !important;
+        }
+        a:visited{
+          color: #3BC49D !important;
+        }
         &:hover {
           opacity: 0.8;
         }

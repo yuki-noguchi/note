@@ -10,7 +10,9 @@ html, body {
   color: #222222;
   background-color: #F7F9F9;
   font-size: 12px;
-  text-decoration: none;
+}
+a {
+  text-decoration: none !important;
 }
 
 .clearfix:after {
