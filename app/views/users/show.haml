@@ -3,12 +3,5 @@
   .user-info__header
     .user-info__header__image
       = image_tag 'sample.jpg'
-  .user-info__profile
-    .user-info__profile__avatar
-      = image_tag 'prof.jpg'
-    .user-info__profile__name
-      = @nickname
-    .user-info__profile__introduction
-      こんにちは！天才的な人間だ！！
-    = link_to "ログアウト(仮)", destroy_user_session_path, method: :delete
+    = render 'shared/user-info'
 = render 'shared/main-contents'
