@@ -2,16 +2,18 @@
   .content
     .content__user.clearfix
       .content__user__avatar
-        = image_tag 'prof.jpg'
+        = link_to user_path(current_user.id) do
+          = image_tag 'prof.jpg'
       .content__user__name
-        = @nickname
+        = link_to @nickname, user_path(current_user.id)
       .content__user__time
-        2017/05/22 11:44
+        = link_to '2017/05/22 11:44', article_path(1)
     .content__article
       .content__article__image
-        = image_tag 'sample.jpg'
+        = link_to article_path(1) do
+          = image_tag 'sample.jpg'
       .content__article__title
-        今日のご飯
+        = link_to '今日のご飯', article_path(1)
       .content__article__body
         %p
           【今週の目次】
@@ -44,7 +46,6 @@
         %p
           14.サラダ
       .content__article__more
-        %a{href: '/'}
-          もっとみる
+        = link_to 'もっとみる', article_path(1)
   .more
     もっとみる
