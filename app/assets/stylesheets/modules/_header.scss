@@ -38,5 +38,15 @@ header {
         background-color: #41B79B;
       }
     }
+    &__login {
+      font-size: 12px;
+      color: #3BC49D;
+      a:link{
+        color: #3BC49D !important;
+      }
+      a:visited{
+        color: #3BC49D !important;
+      }
+    }
   }
 }

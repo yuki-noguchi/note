@@ -1,0 +1,43 @@
+.user-info {
+  width: 100%;
+  &__header{
+    &__image {
+      img {
+        width: 100%;
+        height: auto;
+        max-height: 50vh;
+      }
+    }
+  }
+  &__profile {
+    padding: 30px;
+    height: 170px;
+    width: 100%;
+    background-color: #fff;
+    &__avatar img {
+      width: 110px;
+      height: 110px;
+      border-radius: 110px;
+      float: left;
+      margin-right: 20px;
+    }
+    &__name {
+      padding-top: 3px;
+      font-size: 22px;
+      line-height: 1.3;
+      -webkit-margin-before: 0.67em;
+      -webkit-margin-after: 0.67em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+      font-weight: bold;
+    }
+    &__introduction {
+      font-size: 13px;
+      line-height: 1.8;
+      -webkit-margin-before: 0.83em;
+      -webkit-margin-after: 0.83em;
+      -webkit-margin-start: 0px;
+      -webkit-margin-end: 0px;
+    }
+  }
+}
