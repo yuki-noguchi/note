@@ -21,10 +21,12 @@
         line-height: 18px;
         margin-left: 40px;
         font-weight: bolder;
+        @include link_to_detail();
       }
       &__time {
         line-height: 18px;
         margin-left: 40px;
+        @include link_to_detail();
       }
     }
     &__article {
@@ -41,6 +43,7 @@
         font-weight: bolder;
         line-height: 28px;
         margin: 20px 0 13px;
+        @include link_to_detail();
       }
       &__body {
         padding: 0 20px;

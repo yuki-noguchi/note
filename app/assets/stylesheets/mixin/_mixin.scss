@@ -8,3 +8,15 @@
   border: 1px solid #E8ECEB;
   border-radius: 3px;
 }
+
+@mixin link_to_detail(){
+  a:link{
+    color: inherit !important;
+  }
+  a:visited{
+    color: inherit !important;
+  }
+  a:hover{
+    color: #3BC49D !important;
+  }
+}
