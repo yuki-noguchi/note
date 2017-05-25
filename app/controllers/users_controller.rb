@@ -1,10 +1,5 @@
-class ArticlesController < ApplicationController
-
-  before_action :user_nickname
-  def index
-  end
-
-  def user_nickname
+class UsersController < ApplicationController
+  def show
     if user_signed_in?
       if current_user.nickname?
         @nickname = current_user.nickname
