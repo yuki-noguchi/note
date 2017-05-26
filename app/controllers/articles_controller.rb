@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_article, only: [:show, :destroy]
+  before_action :set_article, only: [:show, :edit, :destroy]
 
   def index
     @articles = Article.includes(:user).order('created_at DESC')
@@ -21,6 +21,9 @@ class ArticlesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
   end
 
   def destroy
