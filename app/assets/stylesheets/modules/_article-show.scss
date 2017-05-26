@@ -28,9 +28,17 @@
       font-size: 12px;
       @include link_to_detail();
     }
-    &__time {
+    .time-and-delete {
       color: #a1a6a9;
       font-size: 10px;
+      display: flex;
+      a {
+        margin-left: 5px;
+        color: #a1a6a9 !important;
+        &:hover {
+          color: #bdc3c7 !important;
+        }
+      }
     }
   }
   &__article {
