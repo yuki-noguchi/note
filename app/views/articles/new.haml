@@ -1,0 +1,9 @@
+.create-note-wrapper
+  .create-note
+    = form_for @article do |f|
+      .create-note__header
+        = link_to 'note', root_path, class: 'create-note__header__logo'
+        = f.submit '投稿する', class: 'create-note__header__post'
+      .create-note__main
+        = f.text_area :title, class: 'create-note__main__title', placeholder: 'ノートタイトル'
+        = f.text_area :body, class: 'create-note__main__body', placeholder: 'ノート本文'

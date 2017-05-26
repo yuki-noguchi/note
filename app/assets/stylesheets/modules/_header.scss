@@ -29,13 +29,15 @@ header {
     &__post {
       border-color: #42C6A9;
       background: #42C6A9;
-      color: #fff;
       border: 1px solid #E8ECEB;
       border-radius: 4px;
       padding: .5em .7em;
-      font-size: 12px;
       &:hover{
         background-color: #41B79B;
+      }
+      a {
+        font-size: 12px;
+        color: #fff !important;
       }
     }
     &__login {

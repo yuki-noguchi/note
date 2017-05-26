@@ -2,6 +2,7 @@
 .user-info
   .user-info__header
     .user-info__header__image
-      = image_tag 'sample.jpg'
+      = image_tag 'prof.jpg'
     = render 'shared/user-info'
-= render 'shared/main-contents'
+.contents
+  = render partial: "shared/article", collection: @articles
