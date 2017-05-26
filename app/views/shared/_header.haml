@@ -11,9 +11,10 @@
           %i.fa.fa-bell-o
         %li.top-menu__user
           = link_to user_path(current_user.id) do
-            = image_tag 'prof.jpg'
+            = user_avatar(current_user)
         %li.top-menu__post
-          %i.fa.fa-pencil-square-o ノートを投稿
+          = link_to new_article_path do
+            %i.fa.fa-pencil-square-o ノートを投稿
       - else
         %li.top-menu__login
           %span

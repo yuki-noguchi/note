@@ -1,8 +1,8 @@
 .user-info__profile
   .user-info__profile__avatar
-    = image_tag 'prof.jpg'
+    = user_avatar(@user)
   .user-info__profile__name
-    = @nickname
+    = user_nickname(@user)
   .user-info__profile__introduction
     こんにちは！天才的な人間だ！！
   = link_to "ログアウト(仮)", destroy_user_session_path, method: :delete
