@@ -9,11 +9,12 @@
           = image_tag 'prof.jpg'
       .note__user__name
         = link_to user_nickname(@user), user_path(@user.id)
-      .time-and-delete
-        .note__user__time
+      .note__user__time-and-delete
+        .time
           = @article.created_at
-        .note__user__delete
+        .delete
           = delete(@user, @article)
+      = edit(@user)
     .note__article
       .note__article__title
         %h1
