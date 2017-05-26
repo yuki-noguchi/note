@@ -1,19 +1,30 @@
 class ArticlesController < ApplicationController
 
-  before_action :user_nickname
   def index
+    @articles = Article.includes(:user).order('created_at DESC')
   end
 
   def show
+    @article = Article.find(params[:id])
+    @user = @article.user
   end
 
-  def user_nickname
-    if user_signed_in?
-      if current_user.nickname?
-        @nickname = current_user.nickname
-      else
-        @nickname = current_user.email.sub(/@.+/, "")
-      end
+  def new
+    @article = Article.new
+  end
+
+  def create
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to article_path(@article)
+    else
+      render :new
     end
   end
+
+  private
+  def article_params
+    params.require(:article).permit(:title, :body).merge(user_id: current_user.id)
+  end
+
 end
