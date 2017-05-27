@@ -29,7 +29,7 @@ module ApplicationHelper
     if user.avatar?
       content_tag :img, "", src: user.avatar
     else
-      content_tag :img, "", src: '/assets/prof.jpg'
+      content_tag :img, "", src: '../assets/prof.jpg'
     end
   end
 
