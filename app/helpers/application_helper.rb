@@ -32,4 +32,8 @@ module ApplicationHelper
       content_tag :img, "", src: '/assets/prof.jpg'
     end
   end
+
+  def user_profile(user)
+    return simple_format(user.profile) if user.profile?
+  end
 end
