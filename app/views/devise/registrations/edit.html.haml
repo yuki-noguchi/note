@@ -16,6 +16,12 @@
         = f.label :prifile, 'プロフィール'
         = f.text_field :profile
       .field
+        = f.label :head_image, 'ヘッダー画像'
+        = f.file_field :head_image
+      .field
+        = f.label :avatar, 'アバター'
+        = f.file_field :avatar
+      .field
         = f.label :email, 'メールアドレス'
         = f.email_field :email
       - if devise_mapping.confirmable? && resource.pending_reconfirmation?
