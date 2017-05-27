@@ -4,5 +4,6 @@
   .user-info__profile__name
     = user_nickname(@user)
   .user-info__profile__introduction
-    こんにちは！天才的な人間だ！！
+    = user_profile(@user)
   = link_to "ログアウト(仮)", destroy_user_session_path, method: :delete
+  = link_to 'アカウント設定（仮）', edit_user_registration_path
