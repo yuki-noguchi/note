@@ -12,4 +12,8 @@ module ArticlesHelper
       end
     end
   end
+
+  def display_more?(article)
+    link_to 'もっとみる', article_path(article) if article.body.length >= 192
+  end
 end

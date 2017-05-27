@@ -38,6 +38,22 @@
     border: none;
     width: 94%;
     max-width: 620px;
+    &__image {
+      font-family: FontAwesome;
+      color: #fff;
+      height: 50px;
+      width: 50px;
+      font-size: 25px;
+      margin-bottom: 20px;
+      background-color: #D9E0E2;
+      border-radius: 50%; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &:hover {
+        background-color: #000;
+      }
+    }
     &__title {
       outline: none;
       min-height: 43.2px;

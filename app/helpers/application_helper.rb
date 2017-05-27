@@ -14,7 +14,7 @@ module ApplicationHelper
 
   def article_image(article)
     content_tag :a, href: article_path(article) do
-      concat (content_tag :img, "", src: article.image) if article.image
+      concat (content_tag :img, "", src: article.image) if article.image.url
     end
   end
 
@@ -29,7 +29,7 @@ module ApplicationHelper
     if user.avatar?
       content_tag :img, "", src: user.avatar
     else
-      content_tag :img, "", src: '/assets/prof.jpg'
+      content_tag :img, "", src: '../assets/prof.jpg'
     end
   end
 

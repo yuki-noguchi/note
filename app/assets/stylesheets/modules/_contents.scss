@@ -46,8 +46,6 @@
         @include link_to_detail();
       }
       &__body {
-        max-height: 400px;
-        overflow: hidden;
         padding: 0 20px;
         font-size: 14px;
         line-height: 25.2px;

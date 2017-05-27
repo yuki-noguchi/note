@@ -22,13 +22,13 @@
       .note__article__body
         = simple_format(@article.body)
     .note__author
-      .user-info__profile
-        .user-info__profile__avatar
+      .user-info__header__profile
+        .user-info__header__profile__avatar
           = link_to user_path(@article.user.id) do
             = user_avatar(@user)
-        .user-info__profile__name
+        .user-info__header__profile__name
           = link_to user_path(@article.user.id) do
             = user_nickname(@user)
-        .user-info__profile__introduction
+        .user-info__header__profile__introduction
           = user_profile(@user)
   = render 'shared/footer'
