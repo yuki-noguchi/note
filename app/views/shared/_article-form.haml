@@ -5,5 +5,7 @@
         = link_to 'note', root_path, class: 'create-note__header__logo'
         = f.submit '投稿する', class: 'create-note__header__post'
       .create-note__main
+        = label_tag 'article[image]', '', class: 'create-note__main__image fa-image'
+        = f.file_field :image, style: 'display:none'
         = f.text_area :title, class: 'create-note__main__title', placeholder: 'ノートタイトル'
         = f.text_area :body, class: 'create-note__main__body', placeholder: 'ノート本文'
