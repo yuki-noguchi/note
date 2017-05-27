@@ -30,6 +30,7 @@
       -webkit-margin-start: 0px;
       -webkit-margin-end: 0px;
       font-weight: bold;
+      @include link_to_detail();
     }
     &__introduction {
       font-size: 13px;
