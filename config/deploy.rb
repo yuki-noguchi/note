@@ -14,6 +14,12 @@ set :ssh_options, auth_methods: ['publickey'],
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
 set :bundle_env_variables, { nokogiri_use_system_libraries: 1 }
+set :default_env, {
+  rbenv_root: "/usr/local/rbenv",
+  path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
+  ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
+  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"]
+}
 
 after 'deploy:publishing', 'deploy:restart'
 namespace :deploy do
