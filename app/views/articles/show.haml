@@ -5,10 +5,9 @@
       = article_image(@article)
     .note__user
       .note__user__avatar
-        = link_to user_path(@user.id) do
-          = image_tag 'prof.jpg'
+        = link_to user_avatar(@article), user_path(@user)
       .note__user__name
-        = link_to user_nickname(@user), user_path(@user.id)
+        = link_to user_nickname(@user), user_path(@user)
       .note__user__time-and-delete
         .time
           = @article.created_at
