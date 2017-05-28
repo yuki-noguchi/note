@@ -3,7 +3,7 @@
     %ul.top-menu
       %li.top-menu__logo
         = link_to root_path do
-          = image_tag 'logo.svg'
+          = image_tag asset_path 'logo.svg'
       - if user_signed_in?
         %li.top-menu__search
           %i.fa.fa-search
