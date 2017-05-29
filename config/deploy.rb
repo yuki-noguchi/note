@@ -18,8 +18,8 @@ set :bundle_env_variables, { nokogiri_use_system_libraries: 1 }
 set :default_env, {
   rbenv_root: "/usr/local/rbenv",
   path: "/usr/local/rbenv/shims:/usr/local/rbenv/bin:$PATH",
-  ACCESS_KEY_ID: ENV["ACCESS_KEY_ID"],
-  SECRET_ACCESS_KEY: ENV["SECRET_ACCESS_KEY"]
+  ACCESS_KEY_ID: Rails.application.secrets.access_key_id,
+  SECRET_ACCESS_KEY: Rails.application.secrets.secret_access_key
 }
 
 after 'deploy:publishing', 'deploy:restart'
