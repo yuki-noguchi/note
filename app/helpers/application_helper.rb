@@ -1,10 +1,5 @@
 module ApplicationHelper
-  def user_nickname(instanse)
-    if instanse == @user
-      user = @user
-    else
-      user = instanse.user
-    end
+  def user_nickname(user)
     if user.nickname?
       return user.nickname
     else

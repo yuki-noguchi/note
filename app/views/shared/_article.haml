@@ -1,10 +1,10 @@
 .content
   .content__user.clearfix
     .content__user__avatar
-      = link_to user_path(article.user.id) do
+      = link_to user_path(article.user) do
         = user_avatar(article)
     .content__user__name
-      = link_to user_nickname(article), user_path(article.user.id)
+      = link_to user_nickname(article.user), user_path(article.user)
     .content__user__time
       = link_to article.created_at, article_path(article)
   .content__article

@@ -7,7 +7,6 @@ class ArticlesController < ApplicationController
   end
 
   def show
-    @user = @article.user
   end
 
   def new
