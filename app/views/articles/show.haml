@@ -5,7 +5,7 @@
       = article_image(@article)
     .note__user
       .note__user__avatar
-        = link_to user_avatar(@article), user_path(@article.user)
+        = link_to user_avatar(@article.user), user_path(@article.user)
       .note__user__name
         = link_to user_nickname(@article.user), user_path(@article.user)
       .note__user__time-and-delete

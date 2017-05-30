@@ -2,7 +2,7 @@
   .content__user.clearfix
     .content__user__avatar
       = link_to user_path(article.user) do
-        = user_avatar(article)
+        = user_avatar(article.user)
     .content__user__name
       = link_to user_nickname(article.user), user_path(article.user)
     .content__user__time

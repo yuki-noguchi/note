@@ -13,14 +13,7 @@ module ApplicationHelper
     end
   end
 
-  def user_avatar(instanse)
-    if instanse == current_user
-      user = current_user
-    elsif instanse == @user
-      user = @user
-    else
-      user = instanse.user
-    end
+  def user_avatar(user)
     if user.avatar?
       content_tag :img, "", src: user.avatar
     else
