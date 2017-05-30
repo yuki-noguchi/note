@@ -5,15 +5,15 @@
       = article_image(@article)
     .note__user
       .note__user__avatar
-        = link_to user_avatar(@article.user), user_path(@article.user)
+        = link_to user_avatar(@article.author), user_path(@article.author)
       .note__user__name
-        = link_to user_nickname(@article.user), user_path(@article.user)
+        = link_to user_nickname(@article.author), user_path(@article.author)
       .note__user__time-and-delete
         .time
           = @article.created_at
         .delete
           = delete(@article)
-      = edit(@article.user)
+      = edit(@article.author)
     .note__article
       .note__article__title
         %h1
@@ -23,11 +23,11 @@
     .note__author
       .user-info__header__profile
         .user-info__header__profile__avatar
-          = link_to user_path(@article.user) do
-            = user_avatar(@article.user)
+          = link_to user_path(@article.author) do
+            = user_avatar(@article.author)
         .user-info__header__profile__name
-          = link_to user_path(@article.user) do
-            = user_nickname(@article.user)
+          = link_to user_path(@article.author) do
+            = user_nickname(@article.author)
         .user-info__header__profile__introduction
-          = user_profile(@article.user)
+          = user_profile(@article.author)
   = render 'shared/footer'

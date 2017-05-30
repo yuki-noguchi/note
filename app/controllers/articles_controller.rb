@@ -3,7 +3,7 @@ class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
 
   def index
-    @articles = Article.includes(:user).order('created_at DESC')
+    @articles = Article.includes(:author).order('created_at DESC')
   end
 
   def show
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.user_id == current_user.id
+    if @article.author_id == current_user.id
       @article.update(article_params)
       redirect_to article_path
     else
@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if @article.user_id == current_user.id
+    if @article.author_id == current_user.id
       @article.destroy
       redirect_to root_path
     end
@@ -43,7 +43,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :body, :image).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :body, :image).merge(author_id: current_user.id)
   end
 
   def set_article

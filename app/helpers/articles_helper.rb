@@ -1,6 +1,6 @@
 module ArticlesHelper
   def delete(article)
-    if article.user_id == current_user.id
+    if article.author_id == current_user.id
       link_to '削除する', article_path, method: :delete, data: { confirm: '本当に削除してもよろしいですか？' }
     end
   end
