@@ -16,4 +16,12 @@ module ArticlesHelper
   def display_more?(article)
     link_to 'もっとみる', article_path(article) if article.body.length >= 192
   end
+
+  def price(article)
+    if article.price
+      content_tag :div, class: 'content__article__price' do
+        concat(content_tag :span, "#{article.price}円")
+      end
+    end
+  end
 end

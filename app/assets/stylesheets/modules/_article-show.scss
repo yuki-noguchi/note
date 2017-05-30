@@ -42,24 +42,7 @@
       }
     }
     &__edit {
-      height: 34px;
-      width: 50px;
-      background: transparent;
-      font-size: 12px;
-      border: 1px solid #3BC49D;
-      border-radius: 4px;
-      display: flex;
-      align-items: center;
-      position: absolute;
-      top: 0;
-      right: 0;
-      a {
-        color: #3DAD88 !important;
-        text-align: center;
-        width: 100%;
-        height: 100%;
-        padding: 8px 12px;
-      }
+      @include button_in_article();
     }
   }
   &__article {

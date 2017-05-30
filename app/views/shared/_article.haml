@@ -8,6 +8,7 @@
     .content__user__time
       = link_to article.created_at, article_path(article)
   .content__article
+    = price(article)
     .content__article__image
       = article_image(article)
     .content__article__title
