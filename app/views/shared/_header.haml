@@ -10,7 +10,7 @@
         %li.top-menu__notification
           %i.fa.fa-bell-o
         %li.top-menu__user
-          = link_to user_path(current_user.id) do
+          = link_to user_path(current_user) do
             = user_avatar(current_user)
         %li.top-menu__post
           = link_to new_article_path do
