@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170530085204) do
+ActiveRecord::Schema.define(version: 20170601094837) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                    null: false
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20170530085204) do
     t.datetime "updated_at",               null: false
     t.integer  "author_id"
     t.integer  "price"
+    t.integer  "limit"
     t.index ["author_id"], name: "fk_rails_3d31dad1cc", using: :btree
   end
 
