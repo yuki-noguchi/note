@@ -19,7 +19,7 @@
         %h1
           = @article.title
       .note__article__body
-        = simple_format(@article.body)
+        = paid?(@article)
     .note__author
       .user-info__header__profile
         .user-info__header__profile__avatar
