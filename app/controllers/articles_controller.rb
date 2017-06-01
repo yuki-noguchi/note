@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :purchase]
 
   def index
     @articles = Article.includes(:author).order('created_at DESC')
@@ -41,9 +41,14 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def purchase
+    Purchase.create(buyer_id: current_user.id, paid_article_id: @article.id)
+    redirect_to article_path(@article)
+  end
+
   private
   def article_params
-    params.require(:article).permit(:title, :body, :image, :price).merge(author_id: current_user.id)
+    params.require(:article).permit(:title, :body, :image, :price, :limit).merge(author_id: current_user.id)
   end
 
   def set_article
