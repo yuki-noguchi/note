@@ -14,6 +14,6 @@
     .content__article__title
       = link_to article.title, article_path(article)
     .content__article__body
-      = simple_format(truncate(article.body, length: 192))
+      = article_has_price?(article)
     .content__article__more
       = display_more?(article)
