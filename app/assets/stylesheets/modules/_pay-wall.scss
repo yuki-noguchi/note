@@ -93,9 +93,11 @@
         }
       }
       .purchase-button {
-        @include green-back-button();
         position: absolute;
         right: 20px;
+        .not-login {
+          @include green-back-button();
+        }
       }
     }
   }
