@@ -1,4 +1,4 @@
-= simple_format(truncate(article.body, length: article.limit))
+= simple_format(truncate(article.body.gsub(/\n/, '<br>'), length: article.limit))
 .pay-wall
   .pay-wall__text
     %p.pay-wall__text__more

@@ -37,7 +37,7 @@ module ArticlesHelper
     if article.price?
       if user_signed_in?
         if current_user.purchases.where(paid_article_id: article.id).present? || article.author_id == current_user.id
-          simple_format(article.body)
+          simple_format(article.body.gsub(/\n/, '<br>'))
         else
           render 'shared/pay-wall', article: article
         end
@@ -45,7 +45,7 @@ module ArticlesHelper
         render 'shared/pay-wall', article: article
       end
     else
-      simple_format(article.body)
+      simple_format(article.body.gsub(/\n/, '<br>'))
     end
   end
 
