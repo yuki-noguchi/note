@@ -43,6 +43,12 @@ class ArticlesController < ApplicationController
 
   def purchase
     Purchase.create(buyer_id: current_user.id, paid_article_id: @article.id)
+    Payjp.api_key = Rails.application.secrets.payjp_secret_key
+    charge = Payjp::Charge.create(
+    amount: @article.price,
+    card: params['payjp-token'],
+    currency: 'jpy',
+  )
     redirect_to article_path(@article)
   end
 
