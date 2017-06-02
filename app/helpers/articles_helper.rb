@@ -56,4 +56,17 @@ module ArticlesHelper
       image_tag asset_path 'pen.jpg'
     end
   end
+
+  def can_purchase?
+    if user_signed_in?
+      form_tag purchase_article_path, method: :post do
+        javascript_include_tag "https://checkout.pay.jp", class: 'payjp-button', data: {key: "#{Rails.application.secrets.payjp_public_key}", text: "購入して続きをみる", submit: {text: '購入する'}}
+      end
+    else
+      content_tag(:div, class: 'not-login') do
+        link_to '購入して続きを見る', new_user_session_path, method: :post
+      end
+    end
+  end
+
 end
