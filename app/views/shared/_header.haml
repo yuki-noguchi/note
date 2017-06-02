@@ -10,8 +10,19 @@
         %li.top-menu__notification
           %i.fa.fa-bell-o
         %li.top-menu__user
-          = link_to user_path(current_user) do
-            = user_avatar(current_user)
+          = user_avatar(current_user)
+          .arrow
+          %ul.hidden-menu
+            %li.hidden-menu__mypage
+              = link_to user_path(current_user) do
+                %p.mypage-nickname
+                  = user_nickname(current_user)
+                %p.mypage-display
+                  マイページを表示
+            %li.hidden-menu__account-setting
+              = link_to 'アカウント設定', edit_user_registration_path
+            %li.hidden-menu__logout
+              = link_to 'ログアウト', destroy_user_session_path, method: :delete
         %li.top-menu__post
           = link_to new_article_path do
             %i.fa.fa-pencil-square-o ノートを投稿
