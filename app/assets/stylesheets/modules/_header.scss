@@ -23,8 +23,62 @@ header {
       margin-left: 0;
       margin-right: auto;
     }
-    &__user img{
-      @include thumb();
+    &__user {
+      position: relative;
+      img{
+        @include thumb();
+      }
+      .arrow {
+        width: 14px;
+        height: 14px;
+        background-color: #fff;
+        transform: rotate(225deg) translate(-5px, -5px);
+        box-shadow: 1px 1px 1px -1px rgba(0,0,0,0.8);
+        position: absolute;
+        top: 48px;
+        right: 10px;
+        z-index: 3;
+        display: none;
+      }
+      .hidden-menu {
+        a {
+          color: #000 !important;
+          }
+        li {
+          justify-content: left !important;
+          @include link_to_detail();
+          padding: 6px 25px;
+        }
+        width: 400%;
+        font-size: 12px;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        display: none;
+        z-index: 2;
+        padding: 8px 0;
+        border-radius: 4px;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.25), 0 0 1px rgba(0,0,0,0.35);
+        &__mypage {
+          text-align: left;
+          border-bottom: 1px solid rgba(0,0,0,0.05);
+          .mypage-nickname {
+            font-weight: bold;
+          }
+          .mypage-display {
+            margin-top: 3px;
+            color: #aaa;
+            font-size: 11px;
+          }
+        }
+        &__account-setting {
+          margin-left: auto;
+        }
+        &__logout {
+          margin-left: auto;
+        }
+      }
     }
     &__post {
      @include green-back-button();
