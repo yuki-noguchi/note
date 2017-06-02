@@ -1,0 +1,29 @@
+= simple_format(truncate(article.body, length: article.limit))
+.pay-wall
+  .pay-wall__text
+    %p.pay-wall__text__more
+      この続きをみるには
+    %p.pay-wall__text__length
+      = "(残り#{article.body.length - article.limit}文字)"
+  - unless user_signed_in?
+    .pay-wall__login
+      = link_to 'ログイン', new_user_session_path, class: 'link-green'
+      または
+      = link_to '会員登録', new_user_registration_path, class: 'link-green'
+      をしてください。
+  .pay-wall__buy
+    .pay-wall__buy__text
+      .pay-wall__buy__text--border
+        %span ノートを購入する
+    .pay-wall__buy__area
+      .article-detail.clearfix
+        .article-detail__image
+          = image_on_paywall?(article)
+        .article-detail__title
+          = article.title
+        .article-detail__name
+          = user_nickname(article.author)
+        .article-detail__price
+          = "#{article.price}円"
+      .purchase-button
+        = can_purchase?

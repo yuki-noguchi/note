@@ -1,9 +1,33 @@
 .create-note-wrapper
   .create-note
     = form_for article do |f|
+      .modal-window
+        .modal-window__title
+          %h1
+            公開する
+        %ul.modal-window__price
+          %p 販売設定
+          %input.free_or_paid{ type: 'radio', name: 'price', value: 'free', checked: true }
+          %label 無料
+          %input.free_or_paid{ type: 'radio', name: 'price', value: 'paid'}
+          %label 有料
+          .modal-window__price__field
+            = f.text_field :price
+            %span 円
+        .modal-window__body-limit
+          %p.body-length
+            全体の文字：
+          %p.body-limit
+            公開文字数：
+            = f.number_field :limit
+            文字
+        .modal-window__foot
+          = link_to 'キャンセル', "", class: 'modal-close'
+          = f.submit '公開', class: 'modal-submit'
       .create-note__header
         = link_to 'note', root_path, class: 'create-note__header__logo'
-        = f.submit '投稿する', class: 'create-note__header__post'
+        .create-note__header__post
+          公開設定
       .create-note__main
         = label_tag 'article[image]', '', class: 'create-note__main__image fa-image'
         = f.file_field :image, style: 'display:none'

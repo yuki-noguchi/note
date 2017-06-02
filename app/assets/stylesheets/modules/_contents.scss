@@ -3,6 +3,7 @@
   max-width: 578px;
   margin: 15px auto 0;
   .content {
+    position: relative;
     margin-bottom: 15px;
     background-color: #ffffff;
     @include border();
@@ -32,6 +33,12 @@
     &__article {
       padding-bottom: 20px;
       height: 100%;
+      &__price {
+        @include button_in_article();
+        top: 20px;
+        right: 20px;
+        width: 65px;
+      }
       &__image img{
         height: 238px;
         width: 100%;

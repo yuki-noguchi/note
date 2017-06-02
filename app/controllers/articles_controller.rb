@@ -1,9 +1,9 @@
 class ArticlesController < ApplicationController
 
-  before_action :set_article, only: [:show, :edit, :update, :destroy]
+  before_action :set_article, only: [:show, :edit, :update, :destroy, :purchase]
 
   def index
-    @articles = Article.includes(:user).order('created_at DESC')
+    @articles = Article.includes(:author).order('created_at DESC')
   end
 
   def show
@@ -26,7 +26,7 @@ class ArticlesController < ApplicationController
   end
 
   def update
-    if @article.user_id == current_user.id
+    if @article.author_id == current_user.id
       @article.update(article_params)
       redirect_to article_path
     else
@@ -35,15 +35,26 @@ class ArticlesController < ApplicationController
   end
 
   def destroy
-    if @article.user_id == current_user.id
+    if @article.author_id == current_user.id
       @article.destroy
       redirect_to root_path
     end
   end
 
+  def purchase
+    Purchase.create(buyer_id: current_user.id, paid_article_id: @article.id)
+    Payjp.api_key = Rails.application.secrets.payjp_secret_key
+    charge = Payjp::Charge.create(
+    amount: @article.price,
+    card: params['payjp-token'],
+    currency: 'jpy',
+  )
+    redirect_to article_path(@article)
+  end
+
   private
   def article_params
-    params.require(:article).permit(:title, :body, :image).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :body, :image, :price, :limit).merge(author_id: current_user.id)
   end
 
   def set_article

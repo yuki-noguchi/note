@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170527093918) do
+ActiveRecord::Schema.define(version: 20170601094837) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                    null: false
@@ -18,8 +18,19 @@ ActiveRecord::Schema.define(version: 20170527093918) do
     t.string   "image"
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
-    t.integer  "user_id"
-    t.index ["user_id"], name: "fk_rails_3d31dad1cc", using: :btree
+    t.integer  "author_id"
+    t.integer  "price"
+    t.integer  "limit"
+    t.index ["author_id"], name: "fk_rails_3d31dad1cc", using: :btree
+  end
+
+  create_table "purchases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "buyer_id"
+    t.integer  "paid_article_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id", using: :btree
+    t.index ["paid_article_id"], name: "index_purchases_on_paid_article_id", using: :btree
   end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -45,5 +56,7 @@ ActiveRecord::Schema.define(version: 20170527093918) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "articles", "users"
+  add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "purchases", "articles", column: "paid_article_id"
+  add_foreign_key "purchases", "users", column: "buyer_id"
 end

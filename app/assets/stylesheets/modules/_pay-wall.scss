@@ -1,0 +1,104 @@
+.pay-wall {
+  margin: 35px 0;
+  border: 3px solid #e1e5e7;
+  padding: 20px 80px;
+  text-align: center;
+  &__text {
+    &__more {
+      margin-bottom: 3px;
+      font-size: 16px;
+      font-weight: bold;
+      line-height: 24px
+    }
+    &__length {
+      font-size: 11px;
+      color: #aaa;
+      line-height: 16.5px;
+    }
+  }
+  &__login {
+    font-size: 12px;
+    line-height: 18px;
+    margin-top: 10px;
+    .link-green {
+      color: #41C9B4 !important;
+      &:hover {
+        text-decoration: underline !important;
+      }
+    }
+  }
+  &__buy {
+    &__text {
+      font-size: 12px;
+      font-weight: bold;
+      line-height: 1;
+      margin-top: 25px;
+      border-top: solid 1px #efefef;
+      height: 23px;
+      position: relative;
+      width: 100%;
+      &--border {
+        position: absolute;
+        top: -6px;
+        right: 0;
+        left: 0;
+        margin-bottom: 10px;
+        span {
+          background-color: #fff;
+          padding: 0 15px;
+        }
+      }
+    }
+    &__area {
+      position: relative;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      text-align: left;
+      border-radius: 4px !important;
+      max-width: 450px;
+      padding: 10px;
+      border: 1px solid #efefef;
+      background: #f8f9fa;
+      .article-detail {
+        max-width: 275px;
+        width: 100%;
+        &__image {
+          height: 60px;
+          width: 72px;
+          float: left;
+          img {
+            width: 60px;
+            height: 60px;
+          }
+        }
+        &__title {
+          margin-top: 5px;
+          font-weight: bold;
+          margin-bottom: 5px;
+          @include pay-wall-article();
+          font-size: 14px;
+          line-height: 14px;
+        }
+        &__name {
+          margin-bottom: 7px;
+          font-size: 12px;
+          line-height: 12px;
+          @include pay-wall-article();
+        }
+        &__price {
+          line-height: 12px;
+          font-size: 12px;
+          font-weight: bold;
+        }
+      }
+      .purchase-button {
+        position: absolute;
+        right: 20px;
+        .not-login {
+          @include green-back-button();
+        }
+      }
+    }
+  }
+}
