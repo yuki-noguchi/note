@@ -26,4 +26,4 @@
         .article-detail__price
           = "#{article.price}円"
       .purchase-button
-        = link_to '購入して続きを見る', purchase_article_path(article), method: :post
+        = can_purchase?
