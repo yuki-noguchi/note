@@ -16,13 +16,13 @@
             %span 円
         .modal-window__body-limit
           %p.body-length
-            全体の文字：
           %p.body-limit
             公開文字数：
             = f.number_field :limit
             文字
         .modal-window__foot
-          = link_to 'キャンセル', "", class: 'modal-close'
+          .modal-close
+            キャンセル
           = f.submit '公開', class: 'modal-submit'
       .create-note__header
         = link_to 'note', root_path, class: 'create-note__header__logo'

@@ -11,15 +11,11 @@ $(function(){
     $(".modal-window").css({"top": pxtop + "px"});
   }
 
-  function bodyLimit(){
-    $('.modal-window__body-limit').show();
-    var bodyLength = $('.create-note__main__body').val().length;
-    $('.body-length').append(bodyLength + '文字');
-  }
-
   $('.create-note__header__post').click(function(){
     $(this).blur();
     if($('.modal-overlay')[0]) return false;
+    var bodyLength = $('.create-note__main__body').val().length;
+    $('.body-length').text('全体の文字数：' + bodyLength + '文字');
     $('body').append('<div class="modal-overlay"></div>');
     $('.modal-overlay').fadeIn('slow');
     centeringModalSyncer();
@@ -36,7 +32,7 @@ $(function(){
       $('.modal-window__body-limit').hide();
     } else {
       $('.modal-window__price__field').show();
-      bodyLimit();
+      $('.modal-window__body-limit').show();
     }
   });
 });

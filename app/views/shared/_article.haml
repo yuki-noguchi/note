@@ -6,7 +6,7 @@
     .content__user__name
       = link_to user_nickname(article.author), user_path(article.author)
     .content__user__time
-      = link_to article.created_at, article_path(article)
+      = link_to article.created_at.strftime('%Y/%m/%d %H:%M'), article_path(article)
   .content__article
     = price(article)
     .content__article__image

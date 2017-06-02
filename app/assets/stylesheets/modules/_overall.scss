@@ -31,3 +31,13 @@ a {
   height:120vh;
   background-color:rgba(0,0,0,0.5);
 }
+
+.header-hidden-overlay{
+  z-index:1;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100vw;
+  height:120vh;
+  background-color:transparent;
+}
