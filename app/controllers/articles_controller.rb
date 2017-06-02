@@ -28,7 +28,7 @@ class ArticlesController < ApplicationController
   def update
     if @article.author_id == current_user.id
       @article.update(article_params)
-      redirect_to article_path
+      redirect_to article_path(@article)
     else
       render :edit
     end
@@ -47,8 +47,8 @@ class ArticlesController < ApplicationController
     charge = Payjp::Charge.create(
     amount: @article.price,
     card: params['payjp-token'],
-    currency: 'jpy',
-  )
+    currency: 'jpy'
+    )
     redirect_to article_path(@article)
   end
 
