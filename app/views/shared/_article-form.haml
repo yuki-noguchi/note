@@ -1,26 +1,26 @@
 .create-note-wrapper
   .create-note
     = form_for article do |f|
-      .modal-window
-        .modal-window__title
+      .article__modal-window
+        .article__modal-window__title
           %h1
             公開する
-        %ul.modal-window__price
+        %ul.article__modal-window__price
           %p 販売設定
           %input.free_or_paid{ type: 'radio', name: 'price', value: 'free', checked: true }
           %label 無料
           %input.free_or_paid{ type: 'radio', name: 'price', value: 'paid'}
           %label 有料
-          .modal-window__price__field
+          .article__modal-window__price__field
             = f.text_field :price
             %span 円
-        .modal-window__body-limit
+        .article__modal-window__body-limit
           %p.body-length
           %p.body-limit
             公開文字数：
             = f.number_field :limit
             文字
-        .modal-window__foot
+        .article__modal-window__foot
           .modal-close
             キャンセル
           = f.submit '公開', class: 'modal-submit'
