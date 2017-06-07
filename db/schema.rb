@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170601094837) do
+ActiveRecord::Schema.define(version: 20170606052008) do
 
   create_table "articles", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "title",                    null: false
@@ -22,6 +22,30 @@ ActiveRecord::Schema.define(version: 20170601094837) do
     t.integer  "price"
     t.integer  "limit"
     t.index ["author_id"], name: "fk_rails_3d31dad1cc", using: :btree
+  end
+
+  create_table "group_talkers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "group_id"
+    t.integer  "talker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["group_id"], name: "index_group_talkers_on_group_id", using: :btree
+    t.index ["talker_id"], name: "index_group_talkers_on_talker_id", using: :btree
+  end
+
+  create_table "groups", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.string   "body",       null: false
+    t.integer  "talker_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "group_id"
+    t.index ["group_id"], name: "fk_rails_841b0ae6ac", using: :btree
+    t.index ["talker_id"], name: "index_messages_on_talker_id", using: :btree
   end
 
   create_table "purchases", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -57,6 +81,10 @@ ActiveRecord::Schema.define(version: 20170601094837) do
   end
 
   add_foreign_key "articles", "users", column: "author_id"
+  add_foreign_key "group_talkers", "groups"
+  add_foreign_key "group_talkers", "users", column: "talker_id"
+  add_foreign_key "messages", "groups"
+  add_foreign_key "messages", "users", column: "talker_id"
   add_foreign_key "purchases", "articles", column: "paid_article_id"
   add_foreign_key "purchases", "users", column: "buyer_id"
 end

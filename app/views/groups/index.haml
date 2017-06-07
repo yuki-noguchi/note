@@ -1,0 +1,8 @@
+.chat__modal-window__title
+  %h1
+    チャットで仕事依頼をする
+  %i.fa.fa-pencil-square-o.chat-start
+  %p.chat-modal-close
+    閉じる
+.chat__modal-window__wrapper
+  = render partial: "shared/group-list", collection: @groups, as: :group

@@ -2,13 +2,13 @@ $(function(){
   function centeringModalSyncer(){
     var w = $(window).width();
     var h = $(window).height();
-    var cw = $(".modal-window").outerWidth(true);
-    var ch = $(".modal-window").outerHeight(true);
+    var cw = $(".article__modal-window").outerWidth(true);
+    var ch = $(".article__modal-window").outerHeight(true);
     var pxleft = ((w - cw)/2);
     var pxtop = ((h - ch)/2);
-    $(".modal-window").fadeIn('slow');
-    $(".modal-window").css({"left": pxleft + "px"});
-    $(".modal-window").css({"top": pxtop + "px"});
+    $(".article__modal-window").fadeIn('slow');
+    $(".article__modal-window").css({"left": pxleft + "px"});
+    $(".article__modal-window").css({"top": pxtop + "px"});
   }
 
   $('.create-note__header__post').click(function(){
@@ -23,16 +23,16 @@ $(function(){
 
   $("body").on("click", ".modal-overlay, .modal-close", function(){
     $(".modal-overlay").remove();
-    $(".modal-window").hide();
+    $(".article__modal-window").hide();
   });
   $('.free_or_paid').click(function(){
     var check = $('input[name="price"]:checked').val();
     if(check === 'free'){
-      $('.modal-window__price__field').hide();
-      $('.modal-window__body-limit').hide();
+      $('.article__modal-window__price__field').hide();
+      $('.article__modal-window__body-limit').hide();
     } else {
-      $('.modal-window__price__field').show();
-      $('.modal-window__body-limit').show();
+      $('.article__modal-window__price__field').show();
+      $('.article__modal-window__body-limit').show();
     }
   });
 });

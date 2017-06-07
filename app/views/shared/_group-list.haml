@@ -1,0 +1,8 @@
+.chat__modal-window__groups.clearfix{data: { id: group.id }}
+  .chat__modal-window__groups__avatar
+    = user_avatar(group.talkers.where.not(id: current_user.id).first)
+  .chat__modal-window__groups__right
+    .nickname
+      = user_nickname(group.talkers.where.not(id: current_user.id).first)
+    .message
+      = group_has?(group.messages)
