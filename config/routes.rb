@@ -6,5 +6,12 @@ Rails.application.routes.draw do
       post 'purchase'
     end
   end
-  resources 'users', only: [:show]
+  resources 'groups' do
+    resources 'messages'
+  end
+  resources 'users', only: [:show] do
+    collection do
+      get 'search'
+    end
+  end
 end
