@@ -5,10 +5,13 @@
         = link_to root_path do
           = image_tag asset_path 'logo.svg'
       - if user_signed_in?
-        %li.top-menu__search
-          %i.fa.fa-search
-        %li.top-menu__notification
-          %i.fa.fa-bell-o
+        .chat-button
+          %i.fa.fa-comments-o
+        .chat__modal-window
+        -# %li.top-menu__search
+        -#   %i.fa.fa-search
+        -# %li.top-menu__notification
+        -#   %i.fa.fa-bell-o
         %li.top-menu__user
           = user_avatar(current_user)
           .arrow
@@ -32,5 +35,5 @@
             = link_to "ログイン", new_user_session_path
             %span /
             = link_to "新規登録", new_user_registration_path
-        %li.top-menu__search
-          %i.fa.fa-search
+        -# %li.top-menu__search
+        -#   %i.fa.fa-search
