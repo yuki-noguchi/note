@@ -1,0 +1,15 @@
+.chat__modal-window__title
+  %p.fa.fa-arrow-left.back
+  %h1
+    メッセージを作成する
+  %p.chat-modal-close
+    閉じる
+.chat__modal-window__search-user.clearfix
+  %h2 メッセージの送信先：
+  .chat__modal-window__search-user__partner
+  = form_for @group do |f|
+    .chat__modal-window__search-user__field
+      = text_field_tag :keyword, '', placeholder: 'チャット相手を選んでください', class: 'chat-group-form__input'
+    .chat__modal-window__search-user__list
+    .chat__modal-window__search-user__result
+      = hidden_field_tag 'group[talker_ids][]', current_user.id
