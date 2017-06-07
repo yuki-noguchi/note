@@ -1,0 +1,17 @@
+.chat__modal-window__title
+  %p.fa.fa-arrow-left.back
+  .chat__modal-window__title__user
+    %h1.avatar
+      = user_avatar(@group.talkers.where.not(id: current_user.id).first)
+    %h1.nickname
+      = user_nickname(@group.talkers.where.not(id: current_user.id).first)
+  %p.chat-modal-close
+    閉じる
+.chat__modal-window__main{ data: { id: @group.id } }
+  %ul.chat__modal-window__main__contents
+    = render partial: 'shared/chat-main', collection: @group.messages, as: :message
+  .chat__modal-window__main__form
+    = form_for [@group, @message], html: { class: 'chat-form' } do |f|
+      = f.text_field :body, class: 'chat-body'
+      = button_tag :submit, class: 'chat-submit' do
+        %i.fa.fa-paper-plane
