@@ -8,7 +8,7 @@ $(function(){
     if(user.avatar.url) {
       html.user_avatar = '<img src="' + user.avatar.url + '">'
     } else {
-      html.user_avatar = '<img src="/assets/prof.jpg">'
+      html.user_avatar = '<img src="<%= asset_path('prof.jpg') %>">'
     }
     if(user.nickname) {
       html.user_nickname = '<p class="chat-group-user__name">'
