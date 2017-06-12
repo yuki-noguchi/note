@@ -30,6 +30,8 @@ $(function(){
     if(check === 'free'){
       $('.article__modal-window__price__field').hide();
       $('.article__modal-window__body-limit').hide();
+      $('#article_price').val("");
+      $('#article_limit').val("");
     } else {
       $('.article__modal-window__price__field').show();
       $('.article__modal-window__body-limit').show();
